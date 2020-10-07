@@ -1,0 +1,26 @@
+-- -*- lua -*-
+-- help(
+-- [[
+-- This module loads genoscope. See https://github.com/tbenavi1/genomescope2.0
+-- ```bash
+-- cd /GWSPH/groups/cbi/Apps
+-- module load git
+-- git clone https://github.com/tbenavi1/genomescope2.0.git
+-- mv genoscope2.0 genoscope && cd genoscope
+-- mkdir 2.0
+-- mv * 2.0
+-- cd ..
+-- '''
+-- ]])
+--
+-- ------------------------------------------------------------------------
+-- -- genoscope
+-- ------------------------------------------------------------------------
+-- local version = "2.0"
+-- local base = pathJoin("/GWSPH/groups/cbi/Apps/genoscope", version)
+--
+-- whatis("Version: 2.0")
+-- whatis("URL: https://github.com/tbenavi1/genomescope2.0")
+-- whatis("Description: genoscope - software for reference-free profiling of polyploid genomes.")
+--
+-- prepend_path("PATH", base)
