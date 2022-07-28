@@ -21,18 +21,42 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-4.7.10-Linux-x86_64.sh && \
   echo '1c945f2b3335c7b2b15130b1b2dc5cf4 Miniconda3-4.7.10-Linux-x86_64.sh' | md5sum -c
 cd ..
 
+### The install should be read only for group
+umask 0022
+
 ### Run installer
 ### The prefix is /GWSPH/groups/cbi/Apps/miniconda3/4.7.10
 bash archive/Miniconda3-4.7.10-Linux-x86_64.sh -b -p /GWSPH/groups/cbi/Apps/miniconda3/4.7.10
 
 ### Create .condarc for all users in the conda base directory
 ### Choose user home as directory for conda environments
+
 cat << EOF > /GWSPH/groups/cbi/Apps/miniconda3/4.7.10/.condarc
+# .condarc system configuration file for CBI
+# This configuration file overrides any user-level configuration 
+# files. User-level configuration should be specified in ~/.condarc
+# Contact bendall@gwu.edu for questions
+
+# Allow users to install packages from other channels
 allow_other_channels : True
+
+# conda updates itself any time a user updates or installs a package
+# in the root environment
 auto_update_conda: False
+
+# notify if a newer version of conda is detected during create,
+# install, update, or remove operation.
 notify_outdated_conda: False
+
+# The list of directories to search for named environments. When
+# creating a new named environment, the environment will be placed in
+# the first writable location.
 envs_dirs:
   - ~/.conda/envs
+
+# The list of directories in which package cache can be present
+pkgs_dirs:
+  - ~/.conda/pkgs
 EOF
 
 ### Create an init script for lmod
