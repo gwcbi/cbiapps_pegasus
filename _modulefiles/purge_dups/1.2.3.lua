@@ -19,7 +19,7 @@ mv purge_dups 1.2.5
 ]])
 
 ------------------------------------------------------------------------
--- blast+
+-- purge_dups
 ------------------------------------------------------------------------
 local version = "1.2.5"
 local base = pathJoin("/GWSPH/groups/cbi/Apps/purge_dups", version, "/bin")
